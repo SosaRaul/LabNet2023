@@ -53,7 +53,7 @@ namespace LabNetPractica3.UI
                 }
              
 
-            } while (option != 5);
+            } while (option != 6);
 
 
 
@@ -64,9 +64,9 @@ namespace LabNetPractica3.UI
                 "1 - Listar tabla Shippers\n" +
                 "2 - Listar tabla Suppliers\n" +
                 "3 - Insertar registro en Shippers\n" +
-                "5 - Borrar registro en Shippers\n" +
-                "4 - Actualizar registro en Shippers\n" +
-                "5 - TERMINAR");
+                "4 - Borrar registro en Shippers\n" +
+                "5 - Actualizar registro en Shippers\n" +
+                "6 - TERMINAR");
         }
     }
 
