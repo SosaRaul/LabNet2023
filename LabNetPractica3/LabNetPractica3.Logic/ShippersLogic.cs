@@ -1,27 +1,38 @@
-﻿using LabNetPractica3.Data;
-using LabNetPractica3.Entities;
+﻿using LabNetPractica3.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LabNetPractica3.Logic
 {
-    public class ShippersLogic
+    public class ShippersLogic : BaseLogic,ILogic<Shippers>
     {
-        private readonly NorthwindContext context;
+        public ShippersLogic() : base() { }
 
-        public ShippersLogic()
-        {
-            context = new NorthwindContext();
-        }
-    
         public List<Shippers> GetAll()
         {
             return context.Shippers.ToList();
         }
-    
+        public void  Add(Shippers newShipper)
+        {
+            context.Shippers.Add(newShipper);
+            context.SaveChanges();
+        }
+        public void Delete(int id)
+        {
+            var shipperToDelete = context.Shippers.Find(id);
+            context.Shippers.Remove(shipperToDelete);
+            context.SaveChanges();
+        }
+
+        public void Update(Shippers shipper)
+        {
+            var shipperToUpdate = context.Shippers.Find(shipper.ShipperID);
+            shipperToUpdate.Phone = shipper.Phone;
+            shipperToUpdate.ShipperID = shipper.ShipperID;
+            shipperToUpdate.CompanyName = shipper.CompanyName;
+            context.SaveChanges();
+        }
     }
 }

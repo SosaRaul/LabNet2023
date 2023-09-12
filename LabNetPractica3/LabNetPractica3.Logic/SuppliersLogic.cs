@@ -8,18 +8,28 @@ using System.Threading.Tasks;
 
 namespace LabNetPractica3.Logic
 {
-    public class SuppliersLogic
+    public class SuppliersLogic : BaseLogic, ILogic<Suppliers>
     {
-        private readonly NorthwindContext context;
+        public SuppliersLogic() : base() { }
 
-        public SuppliersLogic()
+        public void Add(Suppliers entity)
         {
-            context = new NorthwindContext();
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Suppliers> GetAll()
         {
             return context.Suppliers.ToList();
+        }
+
+        public void Update(Suppliers entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

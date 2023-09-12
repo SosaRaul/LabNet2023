@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace LabNetPractica3.UI
 {
@@ -13,6 +13,8 @@ namespace LabNetPractica3.UI
     {
         static void Main(string[] args)
         {
+            ILogic<Suppliers> suppliersLogic = new SuppliersLogic();
+            ILogic<Shippers> shippersLogic = new ShippersLogic();
             int option;
             do
             {
@@ -23,17 +25,15 @@ namespace LabNetPractica3.UI
                     switch (option)
                     {
                         case 1:
-                            ShippersLogic shippersLogic = new ShippersLogic();
                             foreach (Shippers shipper in shippersLogic.GetAll())
                             {
-                                Console.WriteLine(shipper.ShipperID + " " + shipper.CompanyName + shipper.Phone);
+                                Console.WriteLine(shipper.ShipperID + " " + shipper.CompanyName + " " + shipper.Phone);
                             }
                             Console.WriteLine("\nPresione cualquier tecla para seguir\n");
                             Console.ReadKey();
                             break;
 
                         case 2:
-                            SuppliersLogic suppliersLogic = new SuppliersLogic();
                             foreach (Suppliers supplier in suppliersLogic.GetAll())
                             {
                                 Console.WriteLine(supplier.SupplierID + " " + supplier.CompanyName + supplier.Phone);
@@ -41,6 +41,42 @@ namespace LabNetPractica3.UI
                             Console.WriteLine("\nPresione cualquier tecla para seguir\n");
                             Console.ReadKey();
                             break;
+
+                        case 3:
+                            Console.WriteLine("Ingrese CompanyName: ");
+                            string companyName = Console.ReadLine();
+                            Console.WriteLine("Ingrese Phone: ");
+                            string phone = Console.ReadLine();
+                            Shippers newShipper = new Shippers { CompanyName = companyName, Phone = phone };
+                            shippersLogic.Add(newShipper);
+                            break;
+
+                        case 4:
+                            Console.WriteLine("Ingrese id de registro a borrar ");
+                            try
+                            {
+                                int id = Int32.Parse(Console.ReadLine());
+                                shippersLogic.Delete(id);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                                Console.WriteLine("id no valido");
+                                option = 0;
+                            }
+                            break;
+
+                        case 5:
+                            Shippers myShipper = new Shippers();
+                            Console.WriteLine("Ingrese ID ");
+                            myShipper.ShipperID = Int32.Parse(Console.ReadLine());
+                            Console.WriteLine("Ingrese nombre compania ");
+                            myShipper.CompanyName = Console.ReadLine();
+                            Console.WriteLine("Ingrese telefono ");
+                            myShipper.Phone = Console.ReadLine();
+                            shippersLogic.Update(myShipper);
+                            break;
+                          
                         case 0:
                             Menu();
                             break;
@@ -51,10 +87,9 @@ namespace LabNetPractica3.UI
                     Console.WriteLine("opcion invalida");
                     option = 0;
                 }
-             
+
 
             } while (option != 6);
-
 
 
         }
