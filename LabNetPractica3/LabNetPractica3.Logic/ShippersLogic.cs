@@ -22,22 +22,22 @@ namespace LabNetPractica3.Logic
         }
         public bool Delete(int id)
         {
-            bool deleted = false;
+            bool entityDeleted = false;
             Shippers shipperToDelete = context.Shippers.Find(id);
             if (shipperToDelete != null)
             {
                 context.Shippers.Remove(shipperToDelete);
                 context.SaveChanges();
-                deleted = true;
+                entityDeleted = true;
             }
-            return deleted;
+            return entityDeleted;
         }
 
         public void Update(Shippers shipper)
         {
-            var shipperToUpdate = context.Shippers.Find(shipper.ShipperID);
+            Shippers shipperToUpdate = context.Shippers.Find(shipper.ShipperID);
             shipperToUpdate.Phone = shipper.Phone;
-            shipperToUpdate.ShipperID = shipper.ShipperID;
+           
             shipperToUpdate.CompanyName = shipper.CompanyName;
             context.SaveChanges();
         }

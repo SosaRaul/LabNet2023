@@ -18,21 +18,30 @@ namespace MVC.Controllers
         {
             
             List<Shippers> shippers = shippersLogic.GetAll();
-            
+
             List<ShipperView> shippersViews = shippers.Select(shipper => new ShipperView
             {
+                Id = shipper.ShipperID,
                 Phone = shipper.Phone,
                 CompanyName = shipper.CompanyName
             }).ToList();
             
             return View(shippersViews);
         }
+
+        public ActionResult Insert()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public ActionResult Insert(ShipperView shipperView)
         {
             try
             {
-                Shippers shipper = new Shippers {
+                Shippers shipper = new Shippers
+                {
                     CompanyName = shipperView.CompanyName,
                     Phone = shipperView.Phone,
                 };
@@ -43,16 +52,29 @@ namespace MVC.Controllers
             {
                 return RedirectToAction("Index", "Error");
             }
+
         }
 
-   /*     public ActionResult Update() 
-        { 
-        
+
+        public ActionResult Update(int id)
+        {
+
+            Shippers shipper = new Shippers
+            {
+                ShipperID = id,
+                CompanyName = "xx",
+                Phone = "xx"
+            };
+                shippersLogic.Update(shipper);
+                return RedirectToAction("Index");
         }
 
-        public ActionResult Delete() 
-        { 
+
+        public ActionResult Delete(int id) 
+        {
+            shippersLogic.Delete(id);
+            return RedirectToAction("Index");
         }
-   */
+ 
     }
 }

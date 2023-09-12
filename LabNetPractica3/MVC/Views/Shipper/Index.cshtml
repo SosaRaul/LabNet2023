@@ -10,8 +10,11 @@
 <table class=" table">
     <thead>
         <tr>
-            <td scope="col">Company Name</td>
-            <td>Phone</td>
+            <th scope="col">ID</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+
         </tr>
 
     </thead>
@@ -19,8 +22,12 @@
         @foreach (var shipper in Model)
         {
             <tr>
-                <th scope="row">@shipper.CompanyName</th>
+                <th scope="row">@shipper.Id</th>
+                <td>@shipper.CompanyName</td>
                 <td>@shipper.Phone</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { Id = shipper.Id }) </td>
+                <td>@Html.ActionLink("Update", "Update", new { Id = shipper.Id }) </td>
+
             </tr>
         }
     </tbody>
