@@ -56,11 +56,11 @@ namespace LabNetPractica3.UI
                             try
                             {
                                 int id = Int32.Parse(Console.ReadLine());
-                                shippersLogic.Delete(id);
+                                string status = shippersLogic.Delete(id) ? " "  : "Registro no enccontrado";
+                                Console.WriteLine(status);
                             }
-                            catch (Exception ex)
+                            catch
                             {
-                                Console.WriteLine(ex.Message);
                                 Console.WriteLine("id no valido");
                                 option = 0;
                             }

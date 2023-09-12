@@ -1,6 +1,7 @@
 ﻿using LabNetPractica3.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Migrations;
 using System.Linq;
 
@@ -19,11 +20,17 @@ namespace LabNetPractica3.Logic
             context.Shippers.Add(newShipper);
             context.SaveChanges();
         }
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            var shipperToDelete = context.Shippers.Find(id);
-            context.Shippers.Remove(shipperToDelete);
-            context.SaveChanges();
+            bool deleted = false;
+            Shippers shipperToDelete = context.Shippers.Find(id);
+            if (shipperToDelete != null)
+            {
+                context.Shippers.Remove(shipperToDelete);
+                context.SaveChanges();
+                deleted = true;
+            }
+            return deleted;
         }
 
         public void Update(Shippers shipper)

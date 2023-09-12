@@ -10,7 +10,7 @@ namespace LabNetPractica3.Logic
     public interface ILogic<T>
     {
         void Add(T entity);
-        void Delete(int id);
+        bool Delete(int id);
         void Update(T entity);
         List<T> GetAll();
 
