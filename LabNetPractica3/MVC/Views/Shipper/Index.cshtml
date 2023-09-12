@@ -1,0 +1,32 @@
+﻿
+@model List<MVC.Models.ShipperView>
+
+@{
+    ViewBag.Title = "Shippers";
+}
+
+<h2>Shippers</h2>
+
+<table class=" table">
+    <thead>
+        <tr>
+            <td scope="col">Company Name</td>
+            <td>Phone</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var shipper in Model)
+        {
+            <tr>
+                <th scope="row">@shipper.CompanyName</th>
+                <td>@shipper.Phone</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<div>
+    @Html.ActionLink("Agregar Shipper","Insert")
+</div>

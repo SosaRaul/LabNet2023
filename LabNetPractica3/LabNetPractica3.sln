@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNetPractica3.UI", "LabNetPractica3.UI\LabNetPractica3.UI.csproj", "{2423691D-D3A8-4431-9B1A-3C15D40DF13A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNetPractica3.Logic", "LabNetPractica3.Logic\LabNetPractica3.Logic.csproj", "{9FCECA93-0500-4300-A045-39C38BF0C732}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNetPractica3.Data", "LabNetPractica3.Data\LabNetPractica3.Data.csproj", "{AC323C03-CFFA-4C32-9D02-055160B2A2B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNetPractica3.Entities", "LabNetPractica3.Entities\LabNetPractica3.Entities.csproj", "{5ECCD8D4-D569-4844-BBDB-CC6242FFDFB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{F4C8E16D-17BD-4216-872F-C6BAAFF57D9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2423691D-D3A8-4431-9B1A-3C15D40DF13A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2423691D-D3A8-4431-9B1A-3C15D40DF13A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2423691D-D3A8-4431-9B1A-3C15D40DF13A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2423691D-D3A8-4431-9B1A-3C15D40DF13A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9FCECA93-0500-4300-A045-39C38BF0C732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9FCECA93-0500-4300-A045-39C38BF0C732}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FCECA93-0500-4300-A045-39C38BF0C732}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{5ECCD8D4-D569-4844-BBDB-CC6242FFDFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ECCD8D4-D569-4844-BBDB-CC6242FFDFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ECCD8D4-D569-4844-BBDB-CC6242FFDFB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C8E16D-17BD-4216-872F-C6BAAFF57D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C8E16D-17BD-4216-872F-C6BAAFF57D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C8E16D-17BD-4216-872F-C6BAAFF57D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C8E16D-17BD-4216-872F-C6BAAFF57D9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
