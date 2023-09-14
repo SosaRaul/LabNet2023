@@ -12,10 +12,11 @@ namespace LabNetPractica3.Entities
         [Key]
         public int ShipperID { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = false)]
         [StringLength(40)]
         public string CompanyName { get; set; }
 
+        [Required(AllowEmptyStrings = false)]
         [StringLength(24)]
         public string Phone { get; set; }
     }

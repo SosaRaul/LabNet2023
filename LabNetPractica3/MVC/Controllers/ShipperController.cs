@@ -55,18 +55,25 @@ namespace MVC.Controllers
 
         }
 
-
-        public ActionResult Update(int id)
+        [HttpPost]
+        public ActionResult Update(ShipperView shipperView ,int id)
         {
 
             Shippers shipper = new Shippers
             {
                 ShipperID = id,
-                CompanyName = "xx",
-                Phone = "xx"
+                CompanyName = shipperView.CompanyName,
+                Phone = shipperView.Phone
             };
+            try
+            {
                 shippersLogic.Update(shipper);
                 return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Error");
+            }
         }
 
 
