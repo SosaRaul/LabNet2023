@@ -7,14 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using System.Web.Http.Cors;
 
 namespace WebAPI.Controllers
 {
     public class ShipperController : ApiController
     {
         ShippersLogic shippersLogic = new ShippersLogic();
-
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         public IHttpActionResult GetShippers()
         {
             try
@@ -29,6 +29,7 @@ namespace WebAPI.Controllers
 
         }
 
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         public IHttpActionResult PostAddShipper([FromBody] ShipperView request)
         {
             try
@@ -46,7 +47,7 @@ namespace WebAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         public IHttpActionResult DeleteShipper(int id)
         {
             try
@@ -59,7 +60,7 @@ namespace WebAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex.Message);
             }
         }
-       
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         public IHttpActionResult PutShipper(int id, [FromBody] ShipperView request)
         {
             try
