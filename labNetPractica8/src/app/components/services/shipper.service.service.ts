@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/app/environments/environment';
 import { Observable  } from 'rxjs';
 import { ResponseDto } from 'src/app/core/models/ResponseDto';
+import { Shipper } from 'src/app/core/models/shipper';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,4 +24,10 @@ export class ShipperServiceService {
     console.log(url)
     return this.http.delete(url)
   }
+
+  updateShipper(id: number,bodyUpdated : Shipper){
+    let url = `${this.apiUrl}/Shipper/`+ id;
+    return this.http.put(url,bodyUpdated);
+  }
+
 }

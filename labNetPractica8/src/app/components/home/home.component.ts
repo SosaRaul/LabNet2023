@@ -46,13 +46,18 @@ export class HomeComponent implements AfterViewInit{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  deleteShipper(id: number){
+  onClickDeleteShipper(id: number){
     this._shipperService.deleteShippers(id).subscribe()
     console.log(id)
   }
 
-  updateShipper(id: number):void {
-
+  onClickEditShipper(id: number,companyName : string , phone : string):void {
+    let dataShipper: Shipper = {
+      ShipperID : id,
+      CompanyName : companyName,
+      Phone : phone
+    };
+    this._shipperService.updateShipper(id,dataShipper).subscribe()
   }
 
   createShipper(companyName: string, phone: string):void {
