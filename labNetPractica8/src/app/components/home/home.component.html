@@ -41,7 +41,7 @@
                     <button mat-mini-fab color="primary" (click)="onClickDeleteShipper(element.ShipperID)">
                         <mat-icon>delete</mat-icon>
                     </button>
-                    <button mat-mini-fab color="primary"
+                    <button mat-mini-fab color="primary" aria-label="EDITAR"
                         (click)="onClickEditShipper(element.ShipperID,element.CompanyName,element.Phone)">
                         <mat-icon>edit</mat-icon>
                     </button>
@@ -53,7 +53,10 @@
         </table>
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of shippers"></mat-paginator>
 
-
+        
     </div>
 
+</div>
+<div class="example-button-row">
+  <!--  <button mat-raised-button color="primary">Crear Shipper</button>-->
 </div>
