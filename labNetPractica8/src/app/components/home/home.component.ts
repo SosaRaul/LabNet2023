@@ -48,7 +48,6 @@ export class HomeComponent implements AfterViewInit{
 
   onClickDeleteShipper(id: number){
     this._shipperService.deleteShippers(id).subscribe()
-    console.log(id)
   }
 
   onClickEditShipper(id: number,companyName : string , phone : string):void {
@@ -59,22 +58,17 @@ export class HomeComponent implements AfterViewInit{
     };
     this._shipperService.updateShipper(id,dataShipper).subscribe()
   }
-
-  createShipper(companyName: string, phone: string):void {
-
-  }
-
   getAllShippers(){
     this._shipperService.getShippers().subscribe({
       next:(result) =>{
-        console.log(result);
        this.listShippers = result as Shipper[];
        this.dataSource = new MatTableDataSource(result as Shipper[]) 
       },
       error:(e) => {
-        console.log(e);
       }
       
     })
   }
 }
+export { ShipperServiceService };
+

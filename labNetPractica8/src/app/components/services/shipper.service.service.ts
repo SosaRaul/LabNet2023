@@ -4,6 +4,8 @@ import { environment } from 'src/app/environments/environment';
 import { Observable  } from 'rxjs';
 import { ResponseDto } from 'src/app/core/models/ResponseDto';
 import { Shipper } from 'src/app/core/models/shipper';
+import { newShipper } from 'src/app/core/models/newShipper';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,13 +23,17 @@ export class ShipperServiceService {
 
   deleteShippers(id: number){
     let url = `${this.apiUrl}/Shipper/`+ id;
-    console.log(url)
     return this.http.delete(url)
   }
 
   updateShipper(id: number,bodyUpdated : Shipper){
     let url = `${this.apiUrl}/Shipper/`+ id;
     return this.http.put(url,bodyUpdated);
+  }
+
+  createShipper(newBody:any){
+    let url = `${this.apiUrl}/Shipper/`;
+    return this.http.post(url, newBody);
   }
 
 }

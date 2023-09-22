@@ -1,0 +1,16 @@
+<div class="example-container">
+    <form [formGroup]="form" (ngSubmit)="onClickCreateShipper(form.value.companyName,form.value.phoneNumber)">
+    <mat-form-field>
+        <mat-label>Company Name</mat-label>
+        <input matInput placeholder="Pepe Inc" formControlName="companyName" required>
+        <mat-error *ngIf="form.value.companyName.invalid">{{getErrorMessageCompany()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Phone number</mat-label>
+        <input matInput placeholder="Ex : (515) 345-4566" formControlName="phoneNumber" required>
+        <mat-error *ngIf="form.value.phoneNumber.invalid">{{getErrorMessagePhone()}}</mat-error>
+    </mat-form-field>
+       
+    <button type="submit"  mat-raised-button color="primary">Crear Shipper</button>
+</form>
+</div>
