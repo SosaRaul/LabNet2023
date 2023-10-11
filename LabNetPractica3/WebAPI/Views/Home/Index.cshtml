@@ -1,0 +1,28 @@
+﻿@model List<WebAPI.Models.CotizacionDolar>
+
+<h2>Cotizaciones dolar</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Tipo Dolar</th>
+            <th scope="col">Compra</th>
+            <th scope="col">Venta</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (WebAPI.Models.CotizacionDolar dolar in Model)
+            {
+             
+                <tr>
+                    <th scope="row">@dolar.Casa</th>
+                    <td>@dolar.Compra</td>
+                    <td>@dolar.Venta</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

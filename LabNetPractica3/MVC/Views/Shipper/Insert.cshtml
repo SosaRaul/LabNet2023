@@ -1,0 +1,17 @@
+﻿@model MVC.Models.ShipperView
+
+@{
+    ViewBag.Title = "Insert";
+}
+
+
+
+@using (Html.BeginForm("Insert", "Shipper", FormMethod.Post))
+{
+    <label>Company Name</label> @Html.TextBoxFor(r => r.CompanyName)
+    
+    <label>Phone</label> @Html.TextBoxFor(r => r.Phone)
+
+    <input type="submit" class="btn btn-success" value="Save" />
+}
+
